@@ -32,7 +32,7 @@ public class Classroom {
 	public Classroom(String trainerName, List<Trainee> trainee) {
 
 		this.setTrainerName(trainerName);
-		this.setTrainee(trainee);
+//		this.setTrainee(trainee);
 	}
 
 	public String getTrainerName() {
@@ -51,12 +51,12 @@ public class Classroom {
 		this.classroomId = classroomId;
 	}
 
-	public List<Trainee> getTrainee() {
-		return trainee;
-	}
-
-	public void setTrainee(List<Trainee> trainee) {
-		this.trainee = trainee;
-	}
+//	public List<Trainee> getTrainee() {
+//		return trainee;
+//	}
+//
+//	public void setTrainee(List<Trainee> trainee) {
+//		this.trainee = trainee;
+//	}
 
 }
