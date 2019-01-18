@@ -1,6 +1,7 @@
 package com.qa.persistence.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,21 +18,21 @@ public class Trainee {
 
 
 	private String trainerFullName;
-	private int classroomId;
 	
 	
-//	 @JoinColumn(name="classroomId", nullable=false)
-//	    @ManyToOne
-//	    private Classroom trainer;
+	
+	 @ManyToOne(fetch = FetchType.EAGER)
+	    @JoinColumn(name = "classroomId", insertable = false, updatable = false)
+	    private Classroom classroom;
 	
 	public Trainee() {
 
 	}
 
-	public Trainee(String trainerFullName, int classroomId) {
+	public Trainee(String trainerFullName) {
 		
 		this.setTrainerFullName(trainerFullName);
-		this.setClassroomId(classroomId);
+	
 		
 	}
 
@@ -51,11 +52,5 @@ public class Trainee {
 		this.traineeId = traineeId;
 	}
 
-	public int getClassroomId() {
-		return classroomId;
-	}
 
-	public void setClassroomId(int classroomId) {
-		this.classroomId = classroomId;
-	}
 }
