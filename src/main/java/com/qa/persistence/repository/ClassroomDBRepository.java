@@ -39,23 +39,23 @@ public class ClassroomDBRepository implements ClassroomRepository {
 //		Collection<Account> accounts = (Collection<Account>) query.getResultList();
 //		return util.getJSONForObject(accounts);
 		
-		Query query= manager.createQuery("Select a from account a");
+		Query query= manager.createQuery("Select c FROM Classroom c");
 		Collection<Classroom> result = (Collection<Classroom>) query.getResultList();
 		return util.getJSONForObject(result);
 	}
 
 	@Transactional(REQUIRED)
-	public String createClassroom(String accout) {
-		Classroom aClassroom = util.getObjectForJSON(accout, Classroom.class);
+	public String createClassroom(String classroom) {
+		Classroom aClassroom = util.getObjectForJSON(classroom, Classroom.class);
 		manager.persist(aClassroom);
-		return "{\"message\": \"account has been sucessfully added\"}";
+		return "{\"message\": \"classroom has been sucessfully added\"}";
 	}
 	
 	@Transactional(REQUIRED)
-	public String updateClassroom(Long id,String accountToUpdate) {
-		Classroom updatedClassroom = util.getObjectForJSON(accountToUpdate, Classroom.class);
+	public String updateClassroom(Long id,String classroomToUpdate) {
+		Classroom updatedClassroom = util.getObjectForJSON(classroomToUpdate, Classroom.class);
 		Classroom classroomFromDB = findAccount(id);
-		if (accountToUpdate != null) {
+		if (classroomToUpdate != null) {
 			classroomFromDB = updatedClassroom;
 			manager.merge(classroomFromDB);
 		}

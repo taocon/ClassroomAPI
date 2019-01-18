@@ -20,8 +20,8 @@ public class ClassroomServiceImpl implements ClassroomService {
 		return repo.getAllClassrooms();
 	}
 
-	public String addClassroom(String account) {
-			return repo.createClassroom(account);
+	public String addClassroom(String classroom) {
+			return repo.createClassroom(classroom);
 		}
 	
 

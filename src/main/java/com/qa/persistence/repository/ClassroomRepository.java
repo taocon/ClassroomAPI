@@ -3,8 +3,8 @@ package com.qa.persistence.repository;
 public interface ClassroomRepository {
 
 	String getAllClassrooms();
-	String createClassroom(String accout);
+	String createClassroom(String classroom);
 	String deleteClassroom(Long id);
-	String updateClassroom(Long id, String accountToUpdate);
+	String updateClassroom(Long id, String classroomToUpdate);
 
 }
