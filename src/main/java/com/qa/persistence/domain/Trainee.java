@@ -1,5 +1,6 @@
 package com.qa.persistence.domain;
 
+import javax.inject.Inject;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -8,6 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
+
+import com.qa.persistence.repository.ClassroomRepository;
+
+
+
+
+
 
 @Entity
 public class Trainee {
@@ -19,11 +27,11 @@ public class Trainee {
 
 	private String trainerFullName;
 	
+
 	
-	
-	 @ManyToOne(fetch = FetchType.EAGER)
-	    @JoinColumn(name = "classroomId", insertable = false, updatable = false)
-	    private Classroom classroom;
+//	 @ManyToOne(fetch = FetchType.EAGER)
+//	    @JoinColumn(name = "classroomId",referencedColumnName="classroomId")
+//	    private Classroom classroom;
 	
 	public Trainee() {
 
@@ -51,6 +59,8 @@ public class Trainee {
 	public void setTraineeId(Long traineeId) {
 		this.traineeId = traineeId;
 	}
+
+
 
 
 }

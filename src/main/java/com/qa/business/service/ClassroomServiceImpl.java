@@ -1,6 +1,8 @@
 package com.qa.business.service;
 
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.apache.log4j.Logger;
 
@@ -15,6 +17,7 @@ public class ClassroomServiceImpl implements ClassroomService {
 
 	@Inject
 	private JSONUtil util;
+
 
 	public String getAllClassrooms() {
 		return repo.getAllClassrooms();
