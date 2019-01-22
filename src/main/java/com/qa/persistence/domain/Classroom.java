@@ -1,15 +1,20 @@
 package com.qa.persistence.domain;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Size;
+
+import org.hibernate.annotations.Cascade;
 
 @Entity
 public class Classroom {
@@ -20,16 +25,19 @@ public class Classroom {
 
 	private String trainerName;
 
-	@OneToMany(fetch = FetchType.EAGER , targetEntity=Trainee.class )
-	private List<Trainee> trainee;
-	
-	
+	@OneToMany(
+			fetch = FetchType.EAGER, 
+			cascade = CascadeType.ALL
+
+	)
+	@JoinColumn(name = "classroomId")
+	private List<Trainee> trainee = new ArrayList<Trainee>();
 
 	public Classroom() {
 
 	}
 
-	public Classroom(String trainerName, List<Trainee> trainee) {
+	public Classroom(String trainerName) {
 
 		this.setTrainerName(trainerName);
 		this.setTrainee(trainee);

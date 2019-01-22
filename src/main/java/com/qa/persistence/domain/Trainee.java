@@ -27,19 +27,17 @@ public class Trainee {
 
 	private String trainerFullName;
 	
-
+	private Long classroomId;
 	
-//	 @ManyToOne(fetch = FetchType.EAGER)
-//	    @JoinColumn(name = "classroomId",referencedColumnName="classroomId")
-//	    private Classroom classroom;
 	
 	public Trainee() {
 
 	}
 
-	public Trainee(String trainerFullName) {
+	public Trainee(String trainerFullName,Long classroomId) {
 		
 		this.setTrainerFullName(trainerFullName);
+		this.setClassroomId(classroomId);
 	
 		
 	}
@@ -58,6 +56,14 @@ public class Trainee {
 
 	public void setTraineeId(Long traineeId) {
 		this.traineeId = traineeId;
+	}
+
+	public Long getClassroomId() {
+		return classroomId;
+	}
+
+	public void setClassroomId(Long classroomId) {
+		this.classroomId = classroomId;
 	}
 
 
